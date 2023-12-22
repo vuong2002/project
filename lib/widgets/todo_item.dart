@@ -18,16 +18,16 @@ class ToDoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
-      child: ListTile(
+      child: ListTile(// kiểu danh sách
         onTap: () {
           // print('Clicked on Todo Item.');
           onToDoChanged(todo);
         },
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+        shape: RoundedRectangleBorder( //hình dạng 
+          borderRadius: BorderRadius.circular(20),//bo tròn góc với bán kính 20px
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        tileColor: Colors.white,
+        tileColor: Colors.white,//màu ô xếp
         leading: Icon(
           todo.isDone ? Icons.check_box : Icons.check_box_outline_blank,
           color: tdBlue,
@@ -42,7 +42,7 @@ class ToDoItem extends StatelessWidget {
         ),
         trailing: Container(
           padding: const EdgeInsets.all(0),
-          margin: const EdgeInsets.symmetric(vertical: 12),
+          margin: const EdgeInsets.symmetric(vertical: 12),//lề dọc 12px
           height: 35,
           width: 35,
           decoration: BoxDecoration(

@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: tdBGColor,
-      appBar: _buildAppBar(),
+      appBar: _buildAppBar(),//tách thanh ứng dụng bằng phương pháp buildAppBar
       body: Stack(
         children: [
           Container(
@@ -36,16 +36,17 @@ class _HomeState extends State<Home> {
             child: Column(
               children: [
                 searchBox(),
-                Expanded(
+                //Dưới Thanh Search 
+                Expanded(//là một widget giúp mở rộng không gian cho một widget con của Row hoặc Column theo trục chính (main axis)
                   child: ListView(
                     children: [
                       Container(
-                        margin: const EdgeInsets.only(
+                        margin: const EdgeInsets.only( //đệm trên dưới listview
                           top: 50,
                           bottom: 20,
                         ),
                         child: const Text(
-                          'All ToDos',
+                          'Tất cả việc cần làm',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w500,
@@ -165,50 +166,51 @@ class _HomeState extends State<Home> {
       _foundToDo = results;
     });
   }
-
+//thanh tìm kếm 
   Widget searchBox() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.symmetric(horizontal: 15),//đệm giữa icon search và search
+      decoration: BoxDecoration( //tạo vùng chứa
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: TextField(
+      child: TextField( //tùy chỉnh trường văn bản
         onChanged: (value) => _runFilter(value),
         decoration: const InputDecoration(
-          contentPadding: EdgeInsets.all(0),
-          prefixIcon: Icon(
+          contentPadding: EdgeInsets.all(0),// đệm nội dung = 0
+          prefixIcon: Icon( //icon search
             Icons.search,
             color: tdBlack,
             size: 20,
           ),
-          prefixIconConstraints: BoxConstraints(
+          prefixIconConstraints: BoxConstraints(//xét Width Height thanh tìm kiếm
             maxHeight: 20,
             minWidth: 25,
           ),
-          border: InputBorder.none,
-          hintText: 'Search',
+          border: InputBorder.none,//loại bỏ đường viền 
+          hintText: 'Tìm Kiếm',
           hintStyle: TextStyle(color: tdGrey),
         ),
       ),
     );
   }
-
+// thanh menu
   AppBar _buildAppBar() {
     return AppBar(
       backgroundColor: tdBGColor,
-      elevation: 0,
-      title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      elevation: 0,//cung cấp độ cao bằng 0 để bóng đổ biến mất
+      title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, //ảnh người dùng sang bên phải
+        children: [
         const Icon(
-          Icons.menu,
+          Icons.menu,//biểu tượng menu
           color: tdBlack,
           size: 30,
         ),
         Container(
           height: 40,
           width: 40,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
+          child: ClipRRect(//cắt lớp con của nó bằng một hình chữ nhật bo tròn
+            borderRadius: BorderRadius.circular(20),// bo góc hình tròn với bán kính 20
             child: Image.asset('assets/images/avatar_user.jpg'),
           ),
         ),

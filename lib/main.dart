@@ -12,10 +12,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    SystemChrome.setSystemUIOverlayStyle(//thêm hệ thống chrome và set kiểu lớp phủ giao diện 
+        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));//kiểu dáng và màu 
     return const MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,//loại bỏ văn bản gỡ lỗi bằng cách cấp sai cho biểu ngữ chế độ kiểm tra chương trình gỡ lỗi
       title: 'ToDo App',
       home: Home(),
     );
